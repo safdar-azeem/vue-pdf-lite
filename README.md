@@ -1,6 +1,6 @@
 # vue-pdf-lite
 
-A powerful Vue.js composable for generating high-quality PDFs from HTML content with intelligent page breaks, customizable styling, and responsive design support.
+Lightweight Vue 3 composable for generating high-quality PDFs from HTML content with intelligent page breaks, customizable styling, and responsive design support.
 
 ## Features
 
@@ -25,6 +25,8 @@ yarn add vue-pdf-lite
 pnpm add vue-pdf-lite
 ```
 
+> Don't forget to follow me on [GitHub](https://github.com/safdar-azeem)!
+
 ## Basic Usage
 
 ```vue
@@ -38,8 +40,9 @@ const exportToPdf = async () => {
 		fileName: 'my-document',
 		download: true,
 		print: false, // Whether to open browser print dialog
-		margins: [20, 20, 20, 20], // [top, right, bottom, left]
+		margins: [20, 20], // [marginY, marginX]
 		fontSize: 16,
+		fontFamily: "'Roboto', Arial, sans-serif",
 		quality: 'balanced', // 'high' | 'balanced' | 'compressed'
 	})
 }
@@ -109,15 +112,14 @@ const exportWithCustomOptions = async () => {
 		fileName: 'custom-document',
 		download: true,
 		print: false,
-		margins: [30, 25, 30, 25], // Custom margins
+		margins: [30, 25], // [marginY, marginX]
 		fontSize: 14,
 		quality: 'balanced', // 'high' | 'balanced' | 'compressed'
-		pageWidth: 800, // Custom page width
 		onSuccess: (blob) => {
 			console.log('PDF generated successfully!', blob)
 			// Handle the blob (e.g., upload to server)
 		},
-	})
+	}){}
 }
 </script>
 ```
@@ -131,7 +133,6 @@ const printDocument = async () => {
 		fileName: 'document',
 		download: false,
 		print: true, // Opens print dialog
-		margins: [0, 0, 0, 0], // No margins for printing
 	})
 }
 </script>
